@@ -1,0 +1,14 @@
+@import 'normalize.css';
+@import 'reset.css';
+
+img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container{
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
