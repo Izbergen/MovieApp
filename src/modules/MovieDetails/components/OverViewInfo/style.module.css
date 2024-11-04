@@ -1,0 +1,30 @@
+.overViewInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    color: #3f3a3a;
+}
+
+.title{
+    text-align: center;
+    font-family: Garamond sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 45px;
+}
+.overview{
+    text-align: left;
+    font-family: "Fira Sans" , sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #410000;
+}
+
+.vote{
+    font-family: Garamond sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+}

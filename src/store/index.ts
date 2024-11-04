@@ -1,23 +1,35 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { MovieApi } from "./../api/moviesApi";
-import moviesReducer from "@/features/moviesSlice";
-import searchReducer from "@/features/searchSlice";
-import filterReducer from "@/features/filterSlice";
+import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
+
+import searchReducer from "@/modules/MoviesCatalog/store/searchSlice";
 import sessionReducer from "@/features/sessionSlice";
-import featureReducer from "@/features/featuresSlice";
+import favoritesReducer from "@/features/favoritesSlice.ts";
+
+
+import { MovieApi } from "../api/moviesApi";
+import { catalogApi } from "@/modules/MoviesCatalog/api";
+import {movieDetailApi} from "@/modules/MovieDetails/api";
+
 
 export const store = configureStore({
     reducer: {
         moviesApi: MovieApi.reducer,
-        movies: moviesReducer,
+        catalogApi: catalogApi.reducer,
+        movieDetailApi: movieDetailApi.reducer,
+
         search: searchReducer,
-        filter: filterReducer,
         session: sessionReducer,
-        features: featureReducer
+        favorites: favoritesReducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(MovieApi.middleware),
+        getDefaultMiddleware()
+            .concat(MovieApi.middleware)
+            .concat(catalogApi.middleware)
+            .concat(movieDetailApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
 export type RootDispatch = typeof store.dispatch;
+
+export const useAppDispatch = () => useDispatch<RootDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

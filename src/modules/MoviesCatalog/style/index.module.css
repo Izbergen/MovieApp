@@ -1,0 +1,15 @@
+.moviesCatalog{
+    display: flex;
+    flex-direction: column;
+}
+
+.searchBarWrapper{
+    padding: 12px;
+}
+.contentWrapper{
+    display: flex;
+    border: solid 1px #2d2929;
+    border-radius: 15px;
+    padding: 12px;
+    justify-content: space-between;
+}

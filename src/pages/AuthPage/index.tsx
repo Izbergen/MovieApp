@@ -1,21 +1,19 @@
 import { FC, useEffect } from 'react';
 import { useCreateRequestTokenQuery, useCreateSessionMutation } from '@/api/moviesApi.ts';
 import { useDispatch } from 'react-redux';
-import { setSessionId } from '@/features/sessionSlice';
 
 const AuthPage: FC = () => {
     const dispatch = useDispatch();
     const { data: requestToken, refetch } = useCreateRequestTokenQuery();
     const [createSession, { data: sessionId, isSuccess }] = useCreateSessionMutation();
 
-    // Когда sessionId создан, сохраняем его в Redux
     useEffect(() => {
         if (isSuccess && sessionId) {
-            dispatch(setSessionId(sessionId));
+            localStorage.setItem('sessionId' ,sessionId );
+            localStorage.setItem('accountId' , '21600826');
         }
     }, [isSuccess, sessionId, dispatch]);
 
-    // Ссылка для подтверждения токена
     const authUrl = requestToken
         ? `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=http://localhost:3000/your_redirect_page`
         : null;

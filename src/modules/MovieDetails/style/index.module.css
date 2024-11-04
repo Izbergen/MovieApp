@@ -1,0 +1,12 @@
+.movieDetails {
+    display: flex;
+    gap: 30px;
+}
+.rightSide{
+    max-width: 400px;
+}
+.imageContainer {
+    width: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+}

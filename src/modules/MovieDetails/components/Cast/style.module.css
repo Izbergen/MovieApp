@@ -1,0 +1,28 @@
+.cast{
+    overflow: scroll;
+    padding: 10px 0;
+    display: flex;
+    gap: 16px;
+
+}
+.castItem {
+    padding: 5px 10px;
+    box-sizing: border-box;
+    border: 1px solid #3f3a3a;
+    border-radius: 10px;
+    color: #3f3a3a;
+
+}
+.castMember{
+    font-family: "Fira Sans" , sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+.wrapper{
+    padding-bottom: 5px;
+}
+.highlight{
+    font-size: 18px;
+    font-weight: 600;
+}

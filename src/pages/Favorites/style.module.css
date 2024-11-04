@@ -1,0 +1,12 @@
+.title{
+    font-family: Garamond sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34px;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 16px;
+}
