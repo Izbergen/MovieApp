@@ -16,16 +16,19 @@ export const catalogApi = createApi({
 
     endpoints: (builder) => ({
         getMovies: builder.query<MoviesResponse, SearchMoviesQuery>({
-            query: ({ page = 1, sortBy = 'popularity.desc', withGenres = '', query = '' }) => ({
-                url: query !== '' ? 'search/movie' : 'discover/movie',
-                params: {
-                    page,
-                    sort_by: query === '' ? sortBy : undefined,
-                    with_genres: query === '' ? withGenres : undefined,
-                    query: query || undefined,
-                },
-            }),
+            query: ({ page = 1, sortBy = 'popularity.desc', withGenres = '', query = '' }) => {
+                const isSearch = query !== '';
+                return {
+                    url: isSearch ? 'search/movie' : 'discover/movie',
+                    params: {
+                        page,
+                        ...(isSearch ? {} : { sort_by: sortBy, with_genres: withGenres }),
+                        query: isSearch ? query : undefined,
+                    },
+                };
+            },
         }),
+
         getGenres: builder.query<{ genres: { id: number; name: string }[] }, void>({
             query: () => ({
                 url: 'genre/movie/list',

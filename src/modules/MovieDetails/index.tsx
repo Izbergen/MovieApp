@@ -40,7 +40,11 @@ const MovieDetails: FC<MovieDetailsProps> = ( {sessionId = '' , movieId , accoun
                             overview={movieDetails.overview}
                             vote_average={movieDetails.vote_average}
                         />
-                        <AddOrRemoveFromFavorites movieId={movieId} accountId={accountId} sessionId={sessionId} movie={movieDetails} />
+                        <AddOrRemoveFromFavorites
+                            movieId={movieId}
+                            accountId={accountId}
+                            sessionId={sessionId}
+                            movie={movieDetails} />
                         <Rating movieId={movieDetails.id} sessionId={sessionId} />
                     </div>
                 </div>
